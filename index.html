@@ -30,6 +30,15 @@
   </style>
 </head>
 <body>
-  <p>nothing here yet</p>
+  <p id="date"></p>
+  <script>
+    const d = new Date();
+    const n = d.getDate();
+    const s = ['th','st','nd','rd'];
+    const day = n + (s[(n % 100 - 20) % 10] || s[n % 100] || s[0]);
+    const month = d.toLocaleString('en-US', { month: 'short' });
+    const year = '0' + d.getFullYear();
+    document.getElementById('date').textContent = `today is ${day} ${month}, ${year}`;
+  </script>
 </body>
 </html>
